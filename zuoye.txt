@@ -1,0 +1,69 @@
+﻿
+    var xhr=new XMLHttpRequest; 创建异步对象
+    xhr.open() 发起请求，可以是get、post方式
+
+    xhr.setRequestHeader() 设置请求头  get不用设置
+
+    xhr.send() 发送请求主体get方式使用xhr.send(null)
+
+    xhr.onreadystatechange = function () {} 监听响应状态
+    $.ajax({}) 可配置方式发起Ajax请求
+
+    $.get() 以GET方式发起Ajax请求
+
+    $.post() 以POST方式发起Ajax请求
+    $conn=mysql_connect($mysql_server_name,$mysql_username,$mysql_password) or die("error connecting") ; //连接数据库
+ 
+    mysql_query("set names 'utf8'"); //数据库输出编码 应该与你的数据库编码保持一致  用UTF-8 国际标准编码.
+ 
+    mysql_select_db($mysql_database); //打开数据库
+ 
+    $sql ="select * from news "; //SQL语句
+ 
+    $result = mysql_query($sql,$conn); //查询
+
+    select * from mytable
+
+    .查询mytable中的id和姓名
+
+    select id,name from mytable;
+
+    带条件的查询
+
+    select * from mytable where id =3
+
+    select * from mytable where age < 20
+
+    创建多条件查询 not>! and>&& or>||select * from mytable where age < 20 and gender = 0
+    
+    增加数据insert into mytable values(5,'lili',30,0)
+
+    那么标识列一般可以给null值，如果给null,系统会自动生成
+
+    insert into mytable values(null,'lili',30,0)
+
+    指定需要添加数据的字段
+
+    insert into mytable(name,age,gender) values('lili123',30,0)
+
+    对于可以为null的字段可以不赋值
+
+    insert into mytable(name) values("ok")
+
+    非空字段需要赋值，否则系统也不会自动为其生成默认值--建议，非空字段一定要赋值
+
+    insert into mytable(age,gender) values(40,1)
+
+    修改语句的语法：update 表名 set 字段1 = 值1，字段2=值2...where 条件
+
+    update mytable set age = age + 1
+
+    update mytable set age = age +10 where id =5 or id = 4
+
+    update mytable set age = age +1,gender = 1 where id = 5
+
+    删除语句的语法 delete [from] 表名 where 条件
+
+    delete from mytable where id = 8
+    
+    delete from mytable where id in(4,5)
